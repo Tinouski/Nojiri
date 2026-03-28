@@ -143,6 +143,7 @@ h1{
 .twitch{background:linear-gradient(135deg,#9146FF,#5B1FBF);}
 .youtube{background:linear-gradient(135deg,#FF0000,#CC0000);}
 .discord{background:linear-gradient(135deg,#5865F2,#404EED);}
+.email{background:linear-gradient(135deg,#6D4AFF,#1B1340);}
 
 /* FOOTER */
 #powered{
@@ -201,6 +202,10 @@ h1{
       <a class="link discord" href="https://discord.gg/vxwEjwWkKr" target="_blank" rel="noopener noreferrer">
         <span><img class="icon" src="https://cdn.simpleicons.org/discord/ffffff">Discord</span>
       </a>
+
+      <a class="link email" href="mailto:Nojiri_pro@protonmail.com">
+        <span><img class="icon" src="https://cdn.simpleicons.org/protonmail/ffffff">Email</span>
+      </a>
     </div>
   </div>
 </div>
@@ -208,12 +213,10 @@ h1{
 <a id="powered" href="https://kua.vercel.app" target="_blank">Powered by Kua</a>
 
 <script>
-/* LOADER */
 window.addEventListener("load", () => {
   document.getElementById("loader").classList.add("hidden");
 });
 
-/* PARTICLES */
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
