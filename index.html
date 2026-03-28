@@ -2,50 +2,164 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Nojiri-description</title>
+<title>Nojiri - Liens officiels</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
 <style>
 *{box-sizing:border-box;}
-body{margin:0;font-family:'Inter',sans-serif;background:#0a0a0a;color:#fff;overflow:hidden;position:relative;}
-canvas#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;}
-#loader{position:fixed;inset:0;background:#000;display:flex;align-items:center;justify-content:center;z-index:9999;}
-.ring{position:absolute;border:2px solid transparent;border-top:2px solid #fff;border-radius:50%;animation:spin linear infinite;filter:drop-shadow(0 0 10px rgba(255,255,255,.5));}
+body{
+  margin:0;
+  font-family:'Inter',sans-serif;
+  background:#0a0a0a;
+  color:#fff;
+  position:relative;
+}
+
+/* PARTICLES */
+canvas#particles{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  z-index:0;
+}
+
+/* LOADER */
+#loader{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  transition:opacity .5s ease;
+}
+#loader.hidden{
+  opacity:0;
+  pointer-events:none;
+}
+
+.ring{
+  position:absolute;
+  border:2px solid transparent;
+  border-top:2px solid #fff;
+  border-radius:50%;
+  animation:spin linear infinite;
+}
 .ring:nth-child(1){width:60px;height:60px;animation-duration:1.4s;}
 .ring:nth-child(2){width:90px;height:90px;animation-duration:2s;}
 .ring:nth-child(3){width:120px;height:120px;animation-duration:2.6s;}
 .ring:nth-child(4){width:150px;height:150px;animation-duration:3.2s;}
+
 @keyframes spin{to{transform:rotate(360deg);}}
-.container{min-height:100vh;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(0.95);animation:enter 1s ease forwards;animation-delay:.6s;position:relative;z-index:1;}
-@keyframes enter{to{opacity:1;transform:scale(1);}}
-.card{width:100%;max-width:460px;padding:40px;border-radius:24px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);text-align:center;animation:float 6s ease-in-out infinite;backdrop-filter:blur(12px);}
-@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
-.avatar{width:110px;height:110px;border-radius:50%;margin:0 auto 20px;overflow:hidden;border:2px solid #fff;animation:pulse 3s infinite;cursor:pointer;}
-.avatar img{width:100%;height:100%;object-fit:cover;}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.4);}70%{box-shadow:0 0 0 22px rgba(255,255,255,0);}100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}}
-h1{margin:0;font-size:36px;font-weight:800;text-transform:uppercase;}
-.subtitle{margin-bottom:28px;color:#9ca3af;font-size:14px;}
-.links{display:grid;gap:16px;}
-.link{padding:16px 22px;border-radius:18px;text-decoration:none;color:#fff;font-weight:600;display:flex;align-items:center;justify-content:space-between;transform:translateY(20px);opacity:0;animation:linkEnter .6s forwards;position:relative;overflow:hidden;pointer-events:auto;transition:.3s, box-shadow .3s;}
-.link:hover{transform:translateY(-2px) scale(1.05);box-shadow:0 8px 20px rgba(255,255,255,.3);text-shadow:0 0 6px rgba(255,255,255,.3);}
-@keyframes linkEnter{to{transform:translateY(0);opacity:1;}}
-.link:nth-child(1){animation-delay:1.2s;}
-.link:nth-child(2){animation-delay:1.4s;}
-.link:nth-child(3){animation-delay:1.6s;}
-.link:nth-child(4){animation-delay:1.8s;}
-.link:nth-child(5){animation-delay:2s;}
-.icon{width:18px;height:18px;margin-right:10px;vertical-align:middle;}
+
+/* CONTENT */
+.container{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  position:relative;
+  z-index:1;
+}
+
+.card{
+  width:100%;
+  max-width:460px;
+  padding:40px;
+  border-radius:24px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.12);
+  text-align:center;
+  backdrop-filter:blur(12px);
+}
+
+.avatar{
+  width:110px;
+  height:110px;
+  border-radius:50%;
+  margin:0 auto 20px;
+  overflow:hidden;
+  border:2px solid #fff;
+  animation:pulse 3s infinite;
+}
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,255,255,.4);}
+  70%{box-shadow:0 0 0 22px rgba(255,255,255,0);}
+  100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}
+}
+
+h1{
+  margin:0;
+  font-size:34px;
+  font-weight:800;
+}
+
+.subtitle{
+  margin-bottom:28px;
+  color:#9ca3af;
+  font-size:14px;
+}
+
+/* LINKS */
+.links{
+  display:grid;
+  gap:16px;
+}
+
+.link{
+  padding:16px 22px;
+  border-radius:18px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  transition:.3s;
+}
+
+.link:hover{
+  transform:scale(1.05);
+  box-shadow:0 8px 20px rgba(255,255,255,.2);
+}
+
+.icon{
+  width:18px;
+  margin-right:10px;
+}
+
 .twitter{background:linear-gradient(135deg,#1DA1F2,#0d74d1);}
 .instagram{background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF);}
 .twitch{background:linear-gradient(135deg,#9146FF,#5B1FBF);}
-.kick{background:linear-gradient(135deg,#FF5900,#FF8F00);}
 .youtube{background:linear-gradient(135deg,#FF0000,#CC0000);}
 .discord{background:linear-gradient(135deg,#5865F2,#404EED);}
-.konect{background:linear-gradient(135deg,#00CFFF,#0099FF);}
-#powered{position:fixed;bottom:20px;right:20px;background:rgba(255,255,255,0.15);padding:8px 14px;border-radius:10px;font-size:12px;color:#fff;text-decoration:none;backdrop-filter:blur(6px);transition:.25s;}
-#powered:hover{transform:scale(1.08);background:rgba(255,255,255,0.25);}
+
+/* FOOTER */
+#powered{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:rgba(255,255,255,0.15);
+  padding:8px 14px;
+  border-radius:10px;
+  font-size:12px;
+  color:#fff;
+  text-decoration:none;
+  backdrop-filter:blur(6px);
+}
 </style>
 </head>
+
 <body>
 
 <canvas id="particles"></canvas>
@@ -60,25 +174,31 @@ h1{margin:0;font-size:36px;font-weight:800;text-transform:uppercase;}
 
 <div class="container">
   <div class="card">
-    <div class="avatar" id="avatar">
-      <img src="https://imagesend.fr/uploads/20260327/cc9c5c4b1cf9b41006146473d895a90db1aed901.png" alt="Nojiri logo">
+    <div class="avatar">
+      <img src="https://imagesend.fr/uploads/20260327/cc9c5c4b1cf9b41006146473d895a90db1aed901.png" alt="Logo Nojiri">
     </div>
+
     <h1>Nojiri</h1>
     <div class="subtitle">Liens officiels</div>
+
     <div class="links">
-      <a class="link twitter" href="https://x.com/Nojiri__" target="_blank">
+      <a class="link twitter" href="https://x.com/Nojiri__" target="_blank" rel="noopener noreferrer">
         <span><img class="icon" src="https://cdn.simpleicons.org/x/ffffff">X</span>
       </a>
-      <a class="link instagram" href="https://www.instagram.com/tin.ous/" target="_blank">
+
+      <a class="link instagram" href="https://www.instagram.com/tin.ous/" target="_blank" rel="noopener noreferrer">
         <span><img class="icon" src="https://cdn.simpleicons.org/instagram/ffffff">Instagram</span>
       </a>
-      <a class="link twitch" href="https://www.twitch.tv/tinouski63" target="_blank">
+
+      <a class="link twitch" href="https://www.twitch.tv/tinouski63" target="_blank" rel="noopener noreferrer">
         <span><img class="icon" src="https://cdn.simpleicons.org/twitch/ffffff">Twitch</span>
       </a>
-      <a class="link youtube" href="https://www.youtube.com/channel/UCvzZQ37KZ9Rz9VkEPU2CM_w" target="_blank">
+
+      <a class="link youtube" href="https://www.youtube.com/channel/UCvzZQ37KZ9Rz9VkEPU2CM_w" target="_blank" rel="noopener noreferrer">
         <span><img class="icon" src="https://cdn.simpleicons.org/youtube/ffffff">YouTube</span>
       </a>
-      <a class="link discord" href="https://discord.gg/vxwEjwWkKr" target="_blank">
+
+      <a class="link discord" href="https://discord.gg/vxwEjwWkKr" target="_blank" rel="noopener noreferrer">
         <span><img class="icon" src="https://cdn.simpleicons.org/discord/ffffff">Discord</span>
       </a>
     </div>
@@ -86,3 +206,56 @@ h1{margin:0;font-size:36px;font-weight:800;text-transform:uppercase;}
 </div>
 
 <a id="powered" href="https://kua.vercel.app" target="_blank">Powered by Kua</a>
+
+<script>
+/* LOADER */
+window.addEventListener("load", () => {
+  document.getElementById("loader").classList.add("hidden");
+});
+
+/* PARTICLES */
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+let particles = [];
+
+function resize(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resize);
+resize();
+
+for(let i=0;i<60;i++){
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    r:Math.random()*2,
+    dx:(Math.random()-0.5)*0.5,
+    dy:(Math.random()-0.5)*0.5
+  });
+}
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  particles.forEach(p=>{
+    p.x+=p.dx;
+    p.y+=p.dy;
+
+    if(p.x<0||p.x>canvas.width) p.dx*=-1;
+    if(p.y<0||p.y>canvas.height) p.dy*=-1;
+
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle="white";
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
