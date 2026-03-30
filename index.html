@@ -261,5 +261,28 @@ animate();
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+<script>
+const userId = "1156589290252419212";
+const avatarImg = document.getElementById("avatar");
+
+// fallback direct (marche toujours)
+avatarImg.src = `https://cdn.discordapp.com/avatars/${userId}.png?size=1024`;
+
+// version dynamique (gère gif + changements)
+fetch(`https://discord.com/api/users/${userId}`)
+  .then(res => res.json())
+  .then(data => {
+    if (!data.avatar) return;
+
+    const isGif = data.avatar.startsWith("a_");
+    const format = isGif ? "gif" : "png";
+
+    avatarImg.src =
+      `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.${format}?size=1024`;
+  })
+  .catch(() => {
+    // garde le fallback si erreur
+  });
+</script>
 </body>
 </html>
