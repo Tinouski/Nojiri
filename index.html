@@ -14,7 +14,6 @@ body{
   font-family:'Inter',sans-serif;
   background:#0a0a0a;
   color:#fff;
-  position:relative;
 }
 
 /* PARTICLES */
@@ -36,10 +35,7 @@ canvas#particles{
   z-index:9999;
   transition:opacity .5s ease;
 }
-#loader.hidden{
-  opacity:0;
-  pointer-events:none;
-}
+#loader.hidden{opacity:0;pointer-events:none;}
 
 .ring{
   position:absolute;
@@ -77,44 +73,78 @@ canvas#particles{
   backdrop-filter:blur(12px);
 }
 
+/* AVATAR WRAPPER */
+.avatar-wrapper{
+  position:relative;
+  width:110px;
+  margin:0 auto 20px;
+}
+
+/* AVATAR */
 .avatar{
   width:110px;
   height:110px;
   border-radius:50%;
-  margin:0 auto 20px;
   overflow:hidden;
   border:2px solid #fff;
-  animation:pulse 3s infinite;
+  position:relative;
+  animation:glow 4s infinite;
 }
+
 .avatar img{
   width:100%;
   height:100%;
   object-fit:cover;
+  transition:transform .4s ease;
 }
 
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(255,255,255,.4);}
-  70%{box-shadow:0 0 0 22px rgba(255,255,255,0);}
-  100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}
+.avatar:hover img{
+  transform:scale(1.1);
 }
 
-h1{
-  margin:0;
-  font-size:34px;
-  font-weight:800;
+/* GLOW */
+@keyframes glow{
+  0%{box-shadow:0 0 10px rgba(88,101,242,.5);}
+  50%{box-shadow:0 0 25px rgba(88,101,242,1);}
+  100%{box-shadow:0 0 10px rgba(88,101,242,.5);}
 }
 
-.subtitle{
-  margin-bottom:28px;
-  color:#9ca3af;
-  font-size:14px;
+/* STATUS */
+.status{
+  position:absolute;
+  bottom:6px;
+  right:6px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  border:3px solid #0a0a0a;
 }
+.online{background:#23a559;}
+
+/* BADGES */
+.badges{
+  position:absolute;
+  bottom:-10px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:6px;
+}
+
+.badge{
+  background:#111;
+  border:1px solid rgba(255,255,255,0.2);
+  border-radius:8px;
+  padding:2px 6px;
+  font-size:12px;
+}
+
+/* TEXT */
+h1{margin:0;font-size:34px;font-weight:800;}
+.subtitle{margin-bottom:28px;color:#9ca3af;font-size:14px;}
 
 /* LINKS */
-.links{
-  display:grid;
-  gap:16px;
-}
+.links{display:grid;gap:16px;}
 
 .link{
   padding:16px 22px;
@@ -133,10 +163,7 @@ h1{
   box-shadow:0 8px 20px rgba(255,255,255,.2);
 }
 
-.icon{
-  width:18px;
-  margin-right:10px;
-}
+.icon{width:18px;margin-right:10px;}
 
 .twitter{background:linear-gradient(135deg,#1DA1F2,#0d74d1);}
 .instagram{background:linear-gradient(135deg,#F58529,#DD2A7B,#8134AF);}
@@ -156,7 +183,6 @@ h1{
   font-size:12px;
   color:#fff;
   text-decoration:none;
-  backdrop-filter:blur(6px);
 }
 </style>
 </head>
@@ -165,7 +191,6 @@ h1{
 
 <canvas id="particles"></canvas>
 
-<!-- LOADER -->
 <div id="loader">
   <div class="ring"></div>
   <div class="ring"></div>
@@ -173,31 +198,43 @@ h1{
   <div class="ring"></div>
 </div>
 
-<div class="avatar">
-  <img id="avatar" alt="Avatar Discord">
-</div>
+<div class="container">
+  <div class="card">
+
+    <!-- AVATAR DISCORD PREMIUM -->
+    <div class="avatar-wrapper">
+      <div class="avatar">
+        <img id="avatar">
+        <span class="status online"></span>
+      </div>
+
+      <div class="badges">
+        <span class="badge">⚡</span>
+        <span class="badge">💎</span>
+      </div>
+    </div>
 
     <h1>Nojiri</h1>
     <div class="subtitle">Liens officiels</div>
 
     <div class="links">
-      <a class="link twitter" href="https://x.com/Nojiri__" target="_blank" rel="noopener noreferrer">
+      <a class="link twitter" href="https://x.com/Nojiri__" target="_blank">
         <span><img class="icon" src="https://cdn.simpleicons.org/x/ffffff">X</span>
       </a>
 
-      <a class="link instagram" href="https://www.instagram.com/tin.ous/" target="_blank" rel="noopener noreferrer">
+      <a class="link instagram" href="https://www.instagram.com/tin.ous/" target="_blank">
         <span><img class="icon" src="https://cdn.simpleicons.org/instagram/ffffff">Instagram</span>
       </a>
 
-      <a class="link twitch" href="https://www.twitch.tv/tinouski63" target="_blank" rel="noopener noreferrer">
+      <a class="link twitch" href="https://www.twitch.tv/tinouski63" target="_blank">
         <span><img class="icon" src="https://cdn.simpleicons.org/twitch/ffffff">Twitch</span>
       </a>
 
-      <a class="link youtube" href="https://www.youtube.com/channel/UCvzZQ37KZ9Rz9VkEPU2CM_w" target="_blank" rel="noopener noreferrer">
+      <a class="link youtube" href="https://www.youtube.com/channel/UCvzZQ37KZ9Rz9VkEPU2CM_w" target="_blank">
         <span><img class="icon" src="https://cdn.simpleicons.org/youtube/ffffff">YouTube</span>
       </a>
 
-      <a class="link discord" href="https://discord.gg/vxwEjwWkKr" target="_blank" rel="noopener noreferrer">
+      <a class="link discord" href="https://discord.gg/vxwEjwWkKr" target="_blank">
         <span><img class="icon" src="https://cdn.simpleicons.org/discord/ffffff">Discord</span>
       </a>
 
@@ -205,16 +242,34 @@ h1{
         <span><img class="icon" src="https://cdn.simpleicons.org/protonmail/ffffff">Email</span>
       </a>
     </div>
+
   </div>
 </div>
 
 <a id="powered" href="https://kua.vercel.app" target="_blank">Powered by Kua</a>
 
 <script>
+// loader
 window.addEventListener("load", () => {
   document.getElementById("loader").classList.add("hidden");
 });
 
+// avatar dynamique
+const userId = "1156589290252419212";
+const avatar = document.getElementById("avatar");
+
+// fallback
+avatar.src = `https://cdn.discordapp.com/avatars/${userId}.png?size=1024`;
+
+fetch(`https://discord.com/api/users/${userId}`)
+.then(res => res.json())
+.then(data => {
+  if(!data.avatar) return;
+  const format = data.avatar.startsWith("a_") ? "gif" : "png";
+  avatar.src = `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.${format}?size=1024`;
+});
+
+// particles
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
@@ -257,32 +312,6 @@ function animate(){
 }
 animate();
 </script>
-<script>
-  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-</script>
-<script defer src="/_vercel/insights/script.js"></script>
-<script>
-const userId = "1156589290252419212";
-const avatarImg = document.getElementById("avatar");
 
-// fallback direct (marche toujours)
-avatarImg.src = `https://cdn.discordapp.com/avatars/${userId}.png?size=1024`;
-
-// version dynamique (gère gif + changements)
-fetch(`https://discord.com/api/users/${userId}`)
-  .then(res => res.json())
-  .then(data => {
-    if (!data.avatar) return;
-
-    const isGif = data.avatar.startsWith("a_");
-    const format = isGif ? "gif" : "png";
-
-    avatarImg.src =
-      `https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.${format}?size=1024`;
-  })
-  .catch(() => {
-    // garde le fallback si erreur
-  });
-</script>
 </body>
 </html>
